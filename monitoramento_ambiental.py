@@ -1,4 +1,10 @@
-from funcoes_ambientais import (ler_valor, exibir_dados, relatorio_analise, carregar_dados)
+from funcoes_ambientais import (
+    ler_valor,
+    exibir_dados,
+    relatorio_analise,
+    carregar_dados,
+    remover_dado,
+)
 
 # menu
 temperaturas = []
@@ -11,7 +17,8 @@ while opcao != "0":
     print("2 - Carregar dados sinteticos")
     print("3 - Visualizar dados registrados")
     print("4 - Gerar relatorio de analise")
-    print("5 - Limpar dados registrados")
+    print("5 - Apagar um dado especifico")
+    print("6 - Limpar todos os dados registrados")
     print("0 - Sair")
     print("-----------------------------------------------")
     opcao = input("Escolha uma opcao: ")
@@ -46,6 +53,9 @@ while opcao != "0":
         relatorio_analise(temperaturas, umidades)
 
     elif opcao == "5":
+        remover_dado(temperaturas, umidades)
+
+    elif opcao == "6":
         temperaturas.clear()
         umidades.clear()
         print("\nTodos os dados foram apagados")

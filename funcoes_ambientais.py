@@ -96,6 +96,21 @@ def relatorio_analise(temperaturas, umidades):
     print(f"\nSituacao Geral: {situacao_geral}")
     print("------------------------------------------------------")
 
+# apaga uma medicao especifica escolhida pelo usuario
+def remover_dado(temperaturas, umidades):
+    if len(temperaturas) == 0:
+        print("\nNenhuma medicao registrada para apagar.")
+        return
+
+    exibir_dados(temperaturas, umidades)
+    total = len(temperaturas)
+    ponto = int(ler_valor(f"\nDigite o id da leitura que deseja apagar (1 a {total}): ", 1, total))
+    indice = ponto - 1
+
+    temp_removida = temperaturas.pop(indice)
+    umid_removida = umidades.pop(indice)
+
+    print(f"\nID {ponto:02d} (Temp: {temp_removida}°C | Umidade: {umid_removida}%)  apagado")
 
 # dados sinteticos para simulacao de cenarios
 def carregar_dados(tipo_cenario):
